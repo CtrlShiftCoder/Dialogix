@@ -1,5 +1,5 @@
-import useDarkMode from '../hooks/useDarkMode';
-import { MdOutlineNightlight, MdOutlineWbSunny } from 'react-icons/md';
+import useDarkMode from '../hooks/useDarkMode'
+import { MdOutlineNightlight, MdOutlineWbSunny } from 'react-icons/md'
 
 /**
  * A toggle for switching between light and dark modes.
@@ -8,34 +8,33 @@ import { MdOutlineNightlight, MdOutlineWbSunny } from 'react-icons/md';
  * @param {boolean} props.open - Whether the sidebar is open or not.
  */
 const DarkMode = (props) => {
-  const [darkTheme, setDarkTheme] = useDarkMode();
+  const [darkTheme, setDarkTheme] = useDarkMode()
 
   /**
    * Toggles the dark mode.
    */
-  const handleMode = () => setDarkTheme(!darkTheme);
+  const handleMode = () => setDarkTheme(!darkTheme)
   return (
-    <div className="nav">
-      <span className="nav__item" onClick={handleMode}>
+    <div className='nav'>
+      <span className='nav__item' onClick={handleMode}>
         {darkTheme ? (
           <>
-            <div className="nav__icons">
+            <div className='nav__icons'>
               <MdOutlineWbSunny />
             </div>
-            <h1 className={`${!props.open && "hidden"}`}>Light mode</h1>
+            <h1 className={`${!props.open && 'hidden'}`}>Light mode</h1>
           </>
         ) : (
           <>
-            <div className="nav__icons">
+            <div className='nav__icons'>
               <MdOutlineNightlight />
             </div>
-            <h1 className={`${!props.open && "hidden"}`}>Night mode</h1>
+            <h1 className={`${!props.open && 'hidden'}`}>Modo Oscuro</h1>
           </>
         )}
-
       </span>
     </div>
   )
 }
 
-export default DarkMode;
+export default DarkMode

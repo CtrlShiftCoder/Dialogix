@@ -1,57 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import { checkApiKey } from '../utils/checkKeys';
+import React, { useEffect, useState } from 'react'
+import { checkApiKey } from '../utils/checkKeys'
 
 const Setting = ({ modalOpen, setModalOpen }) => {
-  const apiKey = window.localStorage.getItem('api-key') || '';
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
-  const [input, setInput] = useState('');
+  const apiKey = window.localStorage.getItem('api-key') || ''
+  const [loading, setLoading] = useState(false)
+  const [errorMsg, setErrorMsg] = useState('')
+  const [input, setInput] = useState('')
 
   const saveKey = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setErrorMsg('');
-    const keys = input;
+    e.preventDefault()
+    setLoading(true)
+    setErrorMsg('')
+    const keys = input
 
     await checkApiKey(keys)
       .then(() => {
-        window.localStorage.setItem('api-key', keys);
-        console.log('works');
-        setModalOpen(false);
+        window.localStorage.setItem('api-key', keys)
+        console.log('funcionó')
+        setModalOpen(false)
       })
       .catch(() => {
-        console.log('doesnt work');
-        setErrorMsg('error: incorrect keys');
-      });
+        console.log('No funciona')
+        setErrorMsg('error: Debe agregar una clave de API OPENAI')
+      })
 
-    setLoading(false);
-  };
+    setLoading(false)
+  }
 
   const removeApiKey = () => {
-    window.localStorage.removeItem('api-key');
-    setInput('');
-  };
+    window.localStorage.removeItem('api-key')
+    setInput('')
+  }
 
   useEffect(() => {
     if (modalOpen) {
-      setInput(apiKey);
+      setInput(apiKey)
     }
-  }, [apiKey, modalOpen]);
+  }, [apiKey, modalOpen])
 
   return (
-    <form
-      onSubmit={saveKey}
-      className='flex flex-col items-center justify-center gap-2'>
-      <p className='text-lg font-semibold'>Use your own API-key.</p>
-      <p>keys are saved in your own browser</p>
+    <form onSubmit={saveKey} className='flex flex-col items-center justify-center gap-2'>
+      <p className='text-lg font-semibold'>Usa tu API-key de OPENAI.</p>
+      <p>Las claves se guardan en su propio navegador.r</p>
       <p className='italic'>
-        Get OpenAI API key{' '}
+        Obtenga la clave API de OpenAI{' '}
         <a
           className='text-blue-600'
           rel='noreferrer'
           target='_blank'
-          href='https://platform.openai.com/account/api-keys'>
-          here
+          href='https://platform.openai.com/account/api-keys'
+        >
+          Aquí
         </a>
         .
       </p>
@@ -62,23 +61,16 @@ const Setting = ({ modalOpen, setModalOpen }) => {
         className='w-full max-w-xs input input-bordered'
       />
       <button disabled={loading} className='w-full max-w-xs btn btn-outline'>
-        {loading ? (
-          <span className='w-56 progress progress-info' />
-        ) : (
-          'save to localStorage'
-        )}
+        {loading ? <span className='w-56 progress progress-info' /> : 'Guardar Clave'}
       </button>
       {apiKey && input && (
-        <span
-          onClick={removeApiKey}
-          disabled={loading}
-          className='w-full max-w-xs btn btn-error'>
+        <span onClick={removeApiKey} disabled={loading} className='w-full max-w-xs btn btn-error'>
           remove keys
         </span>
       )}
       <p>{errorMsg}</p>
     </form>
-  );
-};
+  )
+}
 
-export default Setting;
+export default Setting
