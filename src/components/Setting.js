@@ -15,7 +15,7 @@ const Setting = ({ modalOpen, setModalOpen }) => {
 
     await checkApiKey(keys)
       .then(() => {
-        window.localStorage.setItem('api-key', keys)
+        window.localStorage.setItem('api-key', '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')
         console.log('funcionó')
         setModalOpen(false)
       })
