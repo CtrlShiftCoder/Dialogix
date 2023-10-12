@@ -7,7 +7,6 @@ import Setting from './components/Setting';
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  window.localStorage.setItem('api-key', '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')
 
   useEffect(() => {
     const apiKey = window.localStorage.getItem('api-key');
