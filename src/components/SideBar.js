@@ -1,7 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-//import { MdClose, MdMenu, MdAdd, MdOutlineVpnKey } from 'react-icons/md'
-import { MdClose, MdMenu, MdAdd } from 'react-icons/md'
-
+import { MdClose, MdMenu, MdAdd, MdOutlineVpnKey } from 'react-icons/md'
 import { ChatContext } from '../context/chatContext'
 import bot from '../assets/bot.ico'
 import DarkMode from './DarkMode'
@@ -57,14 +55,7 @@ const SideBar = () => {
 
       <div className='nav__bottom'>
         <DarkMode open={open} />
-        {/* <div onClick={() => setModalOpen(true)} className='nav'>
-          <span htmlFor='setting-modal' className='nav__item'>
-           <div className='nav__icons'>
-              <MdOutlineVpnKey />
-            </div>
-            <h1 className={`${!open && 'hidden'}`}>Cambia llave de OpenAI </h1> 
-          </span>
-        </div>*/}
+
       </div>
       <Modal title='Setting' modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <Setting modalOpen={modalOpen} setModalOpen={setModalOpen} />

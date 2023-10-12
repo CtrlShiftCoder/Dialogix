@@ -7,14 +7,13 @@ import Setting from './components/Setting';
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  window.localStorage.setItem('api-key', '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')
 
   useEffect(() => {
-    //const apiKey = window.localStorage.getItem('api-key');
-    window.localStorage.setItem('api-key', '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')
-
- /*   if (!apiKey) {
+    const apiKey = window.localStorage.getItem('api-key');
+    if (!apiKey) {
       setModalOpen(true);
-    }*/
+    }
   }, []);
   return (
     <ChatContextProvider>
