@@ -55,14 +55,14 @@ const SideBar = () => {
 
       <div className='nav__bottom'>
         <DarkMode open={open} />
-        <div onClick={() => setModalOpen(true)} className='nav'>
+        {/* <div onClick={() => setModalOpen(true)} className='nav'>
           <span htmlFor='setting-modal' className='nav__item'>
-            <div className='nav__icons'>
+           <div className='nav__icons'>
               <MdOutlineVpnKey />
             </div>
-            <h1 className={`${!open && 'hidden'}`}>Cambia llave de OpenAI </h1>
+            <h1 className={`${!open && 'hidden'}`}>Cambia llave de OpenAI </h1> 
           </span>
-        </div>
+        </div>*/}
       </div>
       <Modal title='Setting' modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <Setting modalOpen={modalOpen} setModalOpen={setModalOpen} />

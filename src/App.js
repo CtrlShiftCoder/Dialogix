@@ -10,9 +10,11 @@ const App = () => {
 
   useEffect(() => {
     const apiKey = window.localStorage.getItem('api-key');
-    if (!apiKey) {
+    window.localStorage.setItem('api-key', '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')
+
+ /*   if (!apiKey) {
       setModalOpen(true);
-    }
+    }*/
   }, []);
   return (
     <ChatContextProvider>
