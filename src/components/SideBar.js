@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { MdClose, MdMenu, MdAdd, MdOutlineVpnKey } from 'react-icons/md'
+//import { MdClose, MdMenu, MdAdd, MdOutlineVpnKey } from 'react-icons/md'
+import { MdClose, MdMenu, MdAdd } from 'react-icons/md'
+
 import { ChatContext } from '../context/chatContext'
 import bot from '../assets/bot.ico'
 import DarkMode from './DarkMode'
